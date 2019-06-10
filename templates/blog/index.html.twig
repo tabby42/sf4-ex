@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    {% for id, post, date in posts %}
+        <p><a href="{{ path('blog_show', {'id': id}) }}">ID {{ id }}</a></p>
+        <h3>{{ post.title|upper }}</h3>
+        <p>{{ post.text }}</p>
+        <p>{{ post.date|date('d/m/Y') }}</p>
+    {% endfor %}
+{% endblock %}
